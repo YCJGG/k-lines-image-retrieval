@@ -28,8 +28,7 @@ def dis_content(flag,img):
 
 
     elif flag == 2:
-        #l_1 = np.sum(img[5:415,59:61])//255  
-        #l_2 = np.sum(img[5:415,354:356])//255
+        
         l_1 = np.sum(img[5:415,55])//255
         l_2 = np.sum(img[5:415,350])//255
         c_1 = judge(l_1)

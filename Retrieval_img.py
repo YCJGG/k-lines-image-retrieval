@@ -51,17 +51,16 @@ def get_features(flag,img):
 
 
 def Retrieval(query):
-    # query = query[60:480,100:720]
-    # query = np.squeeze(query)
+   
     query = pre(query)
     query = np.squeeze(query)
-    #print(query.shape)
+   
 
     flag = classify(K,query)
     
     # get the tags of query image
     query_tag = dis_content(flag,query)
-    #print(query_tag)
+   
     images , crop_images = load_data(flag)
     N_ = crop_images.shape[0]
     
@@ -69,7 +68,7 @@ def Retrieval(query):
     # store the dis
     dis = []
 
-    # selet images
+    # select images
     select_images =[] 
     # start query
     for i in range(N_):
@@ -86,17 +85,8 @@ def Retrieval(query):
             img_features = get_features(flag, img)
             d = 0
             for j in range(flag):
-                # print(i)
-                # print(j)
-                # print(query.shape)
-                # print(img.shape)
-                # print(query_features[j].shape)
-                # print(img_features[j].shape)
-
-
                 d_ =  Jaccard_dis(query_features[j],img_features[j])
                 d += d_[0]
-
 
             dis.append(d/flag)
     dis = np.array(dis)
@@ -122,5 +112,3 @@ Retrieval(query)
 e = time.time()
 print(e-s)
 
-# todo 
-# 判断每个柱形的类别

@@ -67,12 +67,10 @@ images = np.array(images)
 crop_images = np.array(crop_images)
 l = [ np.array(x) for x in l]
 c_l = [np.array(x) for x in c_l]
-#l = np.array(l)
-#c_l = np.array(c_l)
+
 for index in range(len(l)):
     sio.savemat('image_data_'+str(index),{'images':l[index],'crop_images':c_l[index]})
 
-#np.save('images.npy',images)
-#np.save('crop_images.npy',crop_images)
+
 sio.savemat('image_data',{'images':images,'crop_images':crop_images})
 
